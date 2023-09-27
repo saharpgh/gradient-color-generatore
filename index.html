@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/master.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="big-box ">
+            <div class="gradient-box"></div>
+            <div class="row option">
+                <div class="direction">
+                    <p>Direction</p>
+                    <div class="list">
+                        <select>
+                            <option value="to top">Top</option>
+                            <option value="to right top">Right Top</option>
+                            <option value="to right">Right</option>
+                            <option value="to right bottom">Right Bottom</option>
+                            <option value="to bottom">Bottom</option>
+                            <option value="to left bottom">Left Bottom</option>
+                            <option value="to left">Left</option>
+                            <option value="to left top" selected>Left Top</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="palette">
+                    <p>Colors</p>
+                    <div class="colors">
+                        <input type="color" value="#5665E9">
+                        <input type="color" value="#A271F8">
+                      </div>
+                </div>
+            </div>
+            <div class="row text-box">
+                background: linear-gradient(to left top, #42159e, #16d0cd);
+            </div>
+            <div class="row buttons">
+                <div><button class="refresh" onclick="generateGradient(true)">Refresh Colors</button></div>
+                <div><button class="copy" onclick="copycode()">Copy Code</button></div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let colorInputs = document.querySelectorAll('.colors input')
+    let gradientBox = document.querySelector('.gradient-box')
+    let paragrapgh = document.getElementsByClassName('text-box')[0]
+    let selectMenu = document.querySelector('.list select')
+    let refreshbtn = document.getElementsByClassName('.refresh')[0]
+    let copybtn = document.getElementsByClassName('.copy')[0]
+
+
+    function getRandomColor () {
+        const randHex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', 'a', 'b', 'c', 'd', 'e', 'f']
+
+        let temp = ''
+        
+        temp = temp + randHex[Math.floor(Math.random()*randHex.length)]
+        temp = temp + randHex[Math.floor(Math.random()*randHex.length)]
+        temp = temp + randHex[Math.floor(Math.random()*randHex.length)]
+        temp = temp + randHex[Math.floor(Math.random()*randHex.length)]
+        temp = temp + randHex[Math.floor(Math.random()*randHex.length)]
+        temp = temp + randHex[Math.floor(Math.random()*randHex.length)]
+
+        return '#' + temp;
+    }
+
+    function generateGradient(isRandom) {
+        if(isRandom) {
+            colorInputs[0].value = getRandomColor()
+            console.log(colorInputs[0].value)
+            colorInputs[1].value = getRandomColor()
+        }
+
+        let grd = 'linear-gradient('+selectMenu.value+', '+colorInputs[0].value+', '+colorInputs[1].value+')'
+        gradientBox.style.background = grd;
+        paragrapgh.innerHTML = 'background: '+grd+';'
+    }
+
+    generateGradient(true)
+
+    colorInputs.forEach(input => {
+        input.addEventListener("input", () => generateGradient(false));
+    })
+
+    function copycode() {
+        navigator.clipboard.writeText(paragrapgh.innerHTML);
+        copybtn.innerText = "Code Copied";
+    }
+
+    selectMenu.addEventListener("change", () => generateGradient(false))
+</script>
+</html>

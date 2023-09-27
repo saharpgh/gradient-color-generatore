@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(20deg, black, rgb(61, 61, 61), black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Playfair Display", serif;
+}
+main .big-box {
+  box-shadow: 0 0 10px rgb(19, 19, 19);
+  width: 30%;
+  height: 70%;
+  padding: 30px;
+  border-radius: 10px;
+}
+main .big-box .gradient-box {
+  box-shadow: 0 0 10px rgb(19, 19, 19);
+  border-radius: 10px;
+  height: 50%;
+}
+main .big-box .option {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-radius: 10px;
+  height: 15%;
+}
+main .big-box .option .direction {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 55%;
+  box-shadow: 0 0 10px rgb(19, 19, 19);
+  height: 100%;
+  border-radius: 10px;
+  padding: 20px 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+main .big-box .option .direction > p {
+  font-size: 18px;
+  width: 45%;
+}
+main .big-box .option .direction > select {
+  padding: 10px 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+}
+main .big-box .option .palette {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 40%;
+  box-shadow: 0 0 10px rgb(19, 19, 19);
+  height: 100%;
+  border-radius: 10px;
+  padding: 20px 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+main .big-box .option .palette > p {
+  font-size: 18px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+main .big-box .option .palette .colors {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+main .big-box .option .palette .colors > * {
+  width: 100%;
+}
+main .big-box .text-box {
+  height: 20%;
+  box-shadow: 0 0 10px rgb(19, 19, 19);
+  margin: 10px 0;
+  border-radius: 12px;
+  padding: 15PX;
+}
+main .big-box .buttons {
+  height: 12%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+main .big-box .buttons > * {
+  box-shadow: 0 0 10px rgb(19, 19, 19);
+  width: 45%;
+  height: 80%;
+  border-radius: 10px;
+}
+main .big-box .buttons > * > button {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  font-family: "Playfair Display", serif;
+}/*# sourceMappingURL=master.css.map */
